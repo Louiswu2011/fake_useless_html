@@ -1,0 +1,20 @@
+body { }
+.whiteFont { color: white; }
+.yellow_bg { background-color: rgb(205, 205, 0); }
+.green_bg { background-color: rgb(0, 255, 0); }
+.red_bg { background-color: rgb(255, 0, 0); }
+body { background: url("../cssjs/imgs/bg.jpg") 0% 0% / 100% repeat; }
+.cl0 { z-index: 9999; background: url("../cssjs/imgs/3_01.jpg") 0% 0% / 100% no-repeat; }
+.cl1 { z-index: 9999; margin-top: -20px; background: url("../cssjs/imgs/3_02.jpg") 0% 0% / 100% no-repeat; }
+.cl2 { z-index: 9999; text-align: center; background: url("../cssjs/imgs/3_03.jpg") 0% 0% / 100% no-repeat; }
+.cl3 { height: 200px; margin-top: -40px; background: url("../cssjs/imgs/3_04.jpg") 0% 0% / 100% repeat; }
+.cl4 { background: url("../cssjs/imgs/3_05.jpg") 0% 0% / 100% no-repeat; }
+.cl5 { background: url("../cssjs/imgs/3_06.jpg") 0% 0% / 100% no-repeat; }
+.cl6_yellow { height: 40px; background: url("../cssjs/imgs/3_07_y.jpg") 0% 0% / 100% no-repeat; }
+.cl6_red { height: 40px; background: url("../cssjs/imgs/1_07.jpg") 0% 0% / 100% no-repeat; }
+.cl6_green { height: 40px; background: url("../cssjs/imgs/2_07.jpg") 0% 0% / 100% no-repeat; }
+.cl6_grey { height: 40px; background: url("../cssjs/imgs/grey.png") 0% 0% / 100% no-repeat; }
+.cl6_purple { height: 40px; background: url("../cssjs/imgs/purple.png") 0% 0% / 100% no-repeat; }
+.cl6_blue { height: 40px; background: url("../cssjs/imgs/blue.png") 0% 0% / 100% no-repeat; }
+.cl7 { background: url("../cssjs/imgs/3_08.jpg") 0% 0% / 100% no-repeat; }
+.cl8 { height: 60px; background: url("../cssjs/imgs/3_10_1.png") 0% 0% / 100% no-repeat; }

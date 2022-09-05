@@ -1,0 +1,135 @@
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <META HTTP-EQUIV="imagetoolbar" CONTENT="no">  
+<!--    <title>学生进出学校核验</title>-->
+    <title>学生进出学校核验</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="./fx_files/weui.css">
+    <link rel="stylesheet" href="./fx_files/layui.css">
+    <link rel="stylesheet" href="./fx_files/weuix.css">
+    <link rel="stylesheet" href="./fx_files/fx.css">
+    <script type="text/javascript">
+        //得到时间并写入div
+        function getDate(){
+            //获取当前时间
+            var date = new Date();
+            //格式化为本地时间格式
+            var date1 = date.toLocaleString();
+            //获取div
+            var div1 = document.getElementById("times");
+            //将时间写入div
+            div1.innerHTML = date1;
+        }
+        //使用定时器每秒向div写入当前时间
+        setInterval("getDate()",1000);
+    </script>
+    <script src="./fx_files/safe.js"></script>
+    <style>
+     @keyframes scaleDraw {
+        /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+                0% {
+        transform:scale(1);
+        /*开始为原始大小*/
+    }
+    25% {
+        transform:scale(1.1);
+        /*放大1.1倍*/
+    }
+    50% {
+        transform:scale(1);
+    }
+    75% {
+        transform:scale(1.1);
+    }
+    }.zp {
+        -webkit-animation-name:scaleDraw;
+        /*关键帧名称*/
+        -webkit-animation-timing-function:ease-in-out;
+        /*动画的速度曲线*/
+        -webkit-animation-iteration-count:infinite;
+        /*动画播放的次数*/
+        -webkit-animation-duration:4s;
+        /*动画所花费的时间*/
+    }
+
+    .bUtonadaLij {
+    width: 218rpx;
+    height: 80rpx;
+    /*background: #FFF;*/
+    border-radius: 40rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #006a4c;
+    border: 2rpx solid #006a4c;
+    font-weight: bold;
+    -webkit-animation-name: scaleDraw;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 3s;
+    }
+
+    @keyframes scaleDraw {
+        0% {
+            transform: scale(1);
+        }
+
+        25% {
+            transform: scale(.8);
+        }
+
+        50% {
+            transform: scale(1);
+        }
+
+        75% {
+            transform: scale(.8);
+        }
+    }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="page-hd cl0"></div>
+    <div class="page-hd cl1">
+    </div>
+    <div class="page-hd cl2">
+        <p style="font-size: 30px; font-family: STHeiti; font-weight: bold;" align="center">龙岳</p>
+    </div>
+    <div class="page-hd cl3" style=" text-align: center;float:none;">
+        <p style="font-size: 20px; text-align:center;">2020100632</p>
+        <p style="font-size: 16px; text-align:center;">智能科学与工程学院/人工智能产业学院</p>
+        <p style="font-size: 16px; text-align:center;">
+        </p>
+        <div id="qr" class="tcenter" style="padding: 10px;height:170px;">
+                   <img class='zp' width="140px" height="160px" src="cssjs/imgs/fail.jpg"> <!--<img class='zp' width="160px" height="160px" src="cssjs/imgs/www.png">-->
+            
+        </div>
+
+        <p style="font-size: 16px; text-align:center;">
+        </p>
+        <p style="font-size: 16px; font-weight: 200;" align="center"></p>
+    </div>
+    <div class="page-hd cl4">
+        <p style="font-size: 20px; font-weight:bold;" align="center"><span id='times'></span></p>
+    </div>
+    <div class="page-hd cl5">
+            <p style="font-size: 20px; font-weight:bold;text-align: center; margin-top: -30px;">           
+1374            </p>
+    </div>  
+            <div id="colorDIV" class="page-hd cl6 cl6_blue" permit="blue">        
+                <p style=" color:#fff;   font-size: 25px;  font-weight: 200;" align="center" class="bUtonadaLij">予以通行</p>
+                <p style=" color:#fff;   font-size: 15px;  font-weight: 200; text-align: center; margin-top: 5px;">随机码：4Zhsrx</p>
+            </div>
+
+
+    <div class="page-hd cl7"></div>
+    <div class="page-hd cl8"></div>
+
+        
+            
+</body>
+</html>  
