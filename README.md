@@ -7,7 +7,7 @@
 * 没了
 
 ## 使用方法
-克隆到本地运行 or [点击这里](index.html)
+克隆到本地运行 or [点击这里](https://louiswu2011.github.io/fake_useless_html)
 
 ## 注意事项
 * 本项目仅用于个人娱乐，使用该项目出现的任何后果请自负
