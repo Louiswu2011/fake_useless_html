@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="./fx_files/weuix.css">
     <link rel="stylesheet" href="./fx_files/fx.css">
     <script type="text/javascript">
+        // random string function copied from StackOverflow
+        function generateId(length) {
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+                result += characters.charAt(Math.floor(Math.random() * 
+                charactersLength));
+            }
+            return result;
+        }
+
         //得到时间并写入div
         function getDate(){
             //获取当前时间
@@ -23,6 +35,23 @@
         }
         //使用定时器每秒向div写入当前时间
         setInterval("getDate()",1000);
+
+        // Set personal info and else
+        window.onload = function () {
+            var name = prompt("请输入姓名", "马克思")
+            var id = prompt("请输入学号", "1000000001")
+            var institute = prompt("请输入所在学院", "家里蹲学院")
+
+            var nameTag = document.getElementById("name")
+            console.log(nameTag)
+
+            document.getElementById('name').innerHTML = name
+            document.getElementById('id').innerHTML = id
+            document.getElementById('institute').innerHTML = institute
+
+            // Probably useless because no one actually verfies it
+            document.getElementById('randomCode').innerHTML = generateId(6)
+        }
     </script>
     <script src="./fx_files/safe.js"></script>
     <style>
@@ -97,11 +126,11 @@
     <div class="page-hd cl1">
     </div>
     <div class="page-hd cl2">
-        <p style="font-size: 30px; font-family: STHeiti; font-weight: bold;" align="center">马克思</p>
+        <p id="name" style="font-size: 30px; font-family: STHeiti; font-weight: bold;" align="center">马克思</p>
     </div>
     <div class="page-hd cl3" style=" text-align: center;float:none;">
-        <p style="font-size: 20px; text-align:center;">2022学号1984</p>
-        <p style="font-size: 16px; text-align:center;">鬼知道什么学院</p>
+        <p id='id' style="font-size: 20px; text-align:center;">2022学号1984</p>
+        <p id='institute' style="font-size: 16px; text-align:center;">鬼知道什么学院</p>
         <p style="font-size: 16px; text-align:center;">
         </p>
         <div id="qr" class="tcenter" style="padding: 10px;height:170px;">
@@ -122,7 +151,7 @@
     </div>  
             <div id="colorDIV" class="page-hd cl6 cl6_blue" permit="blue">        
                 <p style=" color:#fff;   font-size: 25px;  font-weight: 200;" align="center" class="bUtonadaLij">予以通行</p>
-                <p style=" color:#fff;   font-size: 15px;  font-weight: 200; text-align: center; margin-top: 5px;">随机码：4Zhsrx</p>
+                <p id="randomCode" style=" color:#fff;   font-size: 15px;  font-weight: 200; text-align: center; margin-top: 5px;">随机码：4Zhsrx</p>
             </div>
 
 
