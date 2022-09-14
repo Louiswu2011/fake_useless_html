@@ -11,6 +11,54 @@
     <link rel="stylesheet" href="./fx_files/weuix.css">
     <link rel="stylesheet" href="./fx_files/fx.css">
     <script type="text/javascript">
+        // set cookie for convenience
+        function setCookie(name, id, institute) {
+            // set expire to 7 days later
+            var date = new Date();
+            date.setTime(date.getTime() + (7*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+            var cookieString = "name=" + encodeURIComponent(name) + "; id=" + encodeURIComponent(id) + "; institute=" + encodeURIComponent(institute) + "; Path=/" + expires
+            console.log(cookieString)
+            
+            document.cookie = cookieString
+        }
+
+        function updateCookie() {
+            var nameHolder = document.getElementById("name")
+            var idHolder = document.getElementById('id')
+            var instituteHolder = document.getElementById('institute')
+
+            setCookie(nameHolder.innerHTML, idHolder.innerHTML, instituteHolder.innerHTML)
+            console.log(document.cookie)
+        }
+
+        // another random function from the internet
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+        // load data from cookie
+        function getSavedData() {
+            var items = document.cookie.split(';')
+            var name = getCookie('name')
+            var id = getCookie('id')
+            var institute = getCookie('institute')
+
+            if(name === undefined || id === undefined || institute === undefined) {
+                console.log("Cookie not found.")
+                return false
+            } else {
+                console.log(name, id, institute)
+                return [name, id, institute]
+            }
+        }
+
+        // deletes all cookies, for debug purposes
+        function throwCookies() {
+            document.cookie = 'name=; id=; institute=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+        }
+
         // random string function copied from StackOverflow
         function generateId(length) {
             var result           = '';
@@ -37,21 +85,47 @@
         //使用定时器每秒向div写入当前时间
         setInterval("getDate()",1000);
 
-        // Set personal info and else
+        // set personal info and else
         window.onload = function () {
-            var name = prompt("请输入姓名", "马克思")
-            var id = prompt("请输入学号", "1000000001")
-            var institute = prompt("请输入所在学院", "家里蹲学院")
+            var dataFromCookie = getSavedData()
+            var name = ''
+            var id = ''
+            var institute = ''
 
-            var nameTag = document.getElementById("name")
-            console.log(nameTag)
+            if (dataFromCookie == false) {
+                name = prompt("请输入姓名", "马克思")
+                id = prompt("请输入学号", "1000000001")
+                institute = prompt("请输入所在学院", "家里蹲学院")
 
-            document.getElementById('name').innerHTML = name
-            document.getElementById('id').innerHTML = id
-            document.getElementById('institute').innerHTML = institute
+                setCookie(name, id, institute)
+            } else {
+                name = dataFromCookie[0]
+                id = dataFromCookie[1]
+                institute = dataFromCookie[2]
+            }
+
+            console.log(document.cookie)
+
+            var nameHolder = document.getElementById("name")
+            var idHolder = document.getElementById('id')
+            var instituteHolder = document.getElementById('institute')
+            var rCodeHolder = document.getElementById('randomCode')
+            var mCodeHolder = document.getElementById('mysteriousCode')
+
+            nameHolder.innerHTML = name
+            idHolder.innerHTML = id
+            instituteHolder.innerHTML = institute
 
             // Probably useless because no one actually verfies it
-            document.getElementById('randomCode').innerHTML = "随机码：" + generateId(6)
+            rCodeHolder.innerHTML = "随机码：" + generateId(6)
+
+            // register onclick event
+            nameHolder.onclick = function() { nameHolder.innerHTML = prompt("请输入姓名", "马克思"); updateCookie() }
+            idHolder.onclick = function() { idHolder.innerHTML = prompt("请输入学号", "1000000001"); updateCookie() }
+            instituteHolder.onclick = function() { instituteHolder.innerHTML = prompt("请输入所在学院", "家里蹲学院"); updateCookie() }
+
+            mCodeHolder.onclick = function() { mCodeHolder.innerHTML = prompt("请输入神秘代码", "1374") }
+            rCodeHolder.onclick = function() { rCodeHolder.innerHTML = "随机码：" + generateId(6) }
         }
     </script>
     <script src="./fx_files/safe.js"></script>
@@ -147,7 +221,8 @@
         <p style="font-size: 20px; font-weight:bold;" align="center"><span id='times'></span></p>
     </div>
     <div class="page-hd cl5">
-
+        <p id="mysteriousCode" style="font-size: 20px; font-weight:bold;text-align: center; margin-top: -30px;">           
+            1374            </p>
     </div>  
             <div id="colorDIV" class="page-hd cl6 cl6_blue" permit="blue">        
                 <p style=" color:#fff;   font-size: 25px;  font-weight: 200;" align="center" class="bUtonadaLij">予以通行</p>
